@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Universe Explorer</title>
+    <link rel="icon" type="image/x-icon" href="marvelfav.png">
+    <style>
+        :root {
+            --rojito: #e62429;
+            --oscurito: #202020;
+            --casi-negro: #151515;
+            --blanquito: #f0f0f0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--casi-negro);
+            color: var(--blanquito);
+        }
+
+        main{            margin-bottom: 300px;
+        }
+        
+        .container {
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #000000, #2d2d2d);
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .marvel-logo {
+            font-size: 3.5rem;
+            font-weight: 900px;
+            color: var(--blanquito);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
+            display: inline-block;
+            position: relative;
+            padding: 0 10px;
+        }
+        
+        .marvel-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--rojito);
+            z-index: -1;
+            transform: skewX(-25deg);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+        
+        .character-card {
+            background: var(--oscurito);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            margin: 2rem;
+        }
+        
+        
+        .character-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            
+        }
+        
+        .character-info {
+            padding: 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content:space-around;
+        }
+        
+        .character-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .character-comics {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+    
+        footer {
+            background: var(--oscurito);
+            padding: 2rem 0;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+
+        }
+
+        .barrabuscador {
+            margin: 2rem auto;
+            max-width: 600px;
+            position: relative;
+            display: flex;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--oscurito);
+            transition: all 0.3s ease;
+        }
+        
+        .barrabuscador:hover {
+            box-shadow: 0 8px 20px rgba(230, 36, 41, 0.4);
+            border-color: var(--rojito);
+        }
+        
+        #buscador {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background-color: var(--oscurito);
+            color: var(--blanquito);
+            letter-spacing: 0.5px;
+        }
+        
+        #buscador::placeholder {
+            color: #888;
+            font-style: italic;
+        }
+        
+        #search {
+            background-color: var(--rojito);
+            color: var(--blanquito);
+            border: none;
+            padding: 0 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        #search:hover {
+            background-color: #c41f24;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #888;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        
+        .copyright a {
+            color: var(--rojito);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .copyright a:hover {
+            color: var(--blanquito);
+        }
+        
+        .universe-filters {
+            margin: 2rem auto;
+            text-align: center;
+        }
+        
+        .filters-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--blanquito);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .filters-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background-color: var(--rojito);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-button {
+            background-color: var(--oscurito);
+            color: var(--blanquito);
+            border: 2px solid #444;
+            border-radius: 25px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .filter-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--rojito);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .filter-button:hover {
+            color: var(--blanquito);
+            border-color: var(--rojito);
+        }
+        
+        .filter-button:hover::before {
+            left: 0;
+        }
+        
+        .filter-button.active {
+            background-color: var(--rojito);
+            border-color: var(--rojito);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .universe-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--blanquito);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-left: 3px solid var(--rojito);
+            border-right: 3px solid var(--rojito);
+        }
+       
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <h1 class="marvel-logo" data-i18n="header.title">Marvel</h1>
+            <p class="subtitle" data-i18n="header.subtitle">
+                Explora el vasto universo de personajes, cómics y series de Marvel
+            </p>
+            <div>
+                <label for="language-selector">Idioma:</label>
+                <select id="language-selector">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="fr">Frances</option>
+                    <option value="ro">Rumano</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="barrabuscador">
+            <input type="text" id="buscador" placeholder="Que superheroe buscas?" data-i18n-placeholder="search.placeholder" />
+            <button type="button" id="search" data-i18n="search.button" >Buscar</button>
+          </div>
+          <div class="universe-filters">
+            <h2 class="filters-title" data-i18n="filters.title">Filtrar por Universo</h2>
+            <div class="filter-buttons">
+                <button class="filter-button active" data-universe="all" data-i18n="filters.all">Todos</button>
+                <button class="filter-button" data-universe="616" data-i18n="filters.universe616">Universo 616 (Principal)</button>
+                <button class="filter-button" data-universe="ultimate" data-i18n="filters.ultimate">Ultimate (1610)</button>
+                <button class="filter-button" data-universe="mcu" data-i18n="filters.mcu">MCU (199999)</button>
+                <button class="filter-button" data-universe="xmen" data-i18n="filters.xmen">X-Men (10005)</button>
+                <button class="filter-button" data-universe="spider" data-i18n="filters.spider">Spider-Verse (1048)</button>
+                <button class="filter-button" data-universe="noir" data-i18n="filters.noir">Marvel Noir (90214)</button>
+            </div>
+        </div>
+        <div class="cards-grid">
+            <div class="character-card" data-universe="616 mcu">
+                <div class="universe-badge" data-i18n="character.universe616">Universo 616</div>
+                <img src="spiderman.jpg" alt="Spiderman" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">Spider-Man</h3>
+                    <p class="character-comics" data-i18n="character.comicsCount" data-comics="1500">
+                        1500 cómics disponibles
+                    </p>
+                </div>
+            </div>
+        
+            <div class="character-card" data-universe="616 mcu">
+                <div class="universe-badge" data-i18n="character.universe616">Universo 616</div>
+                <img src="ironman.jpg" alt="Ironman" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">Iron Man</h3>
+                    <p class="character-comics" data-i18n="character.comicsCount" data-comics="1200">
+                        1200 cómics disponibles
+                    </p>
+                </div>
+            </div>
+        </div>
+            
+        </div>
+    </main>
+    
+    <footer>
+        <p id="datos" data-i18n="footer.developed">Desarrollado por el grupo CSS</p>
+        <div class="copyright">
+            <p data-i18n="footer.rights">© 2025 MARVEL. Todos los derechos reservados.</p>
+            <p data-i18n="footer.marvelInfo">Los personajes y logotipos de Marvel son propiedad de <a href="https://developer.marvel.com/" target="_blank">Marvel Entertainment, LLC</a></p>
+            <p data-i18n="footer.educational">Este sitio es un proyecto educativo sin fines comerciales.</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+
+</body>
+</html>
