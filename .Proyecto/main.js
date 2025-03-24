@@ -3,6 +3,7 @@ const translations = {
   "es": {
     "header.title": "Marvel",
     "header.subtitle": "Explora el vasto universo de personajes, cómics y series de Marvel",
+    "idioma": "Idioma:",
     "search.placeholder": "¿Qué superhéroe buscas?",
     "search.button": "Buscar",
     "filters.title": "Filtrar por Universo",
@@ -17,12 +18,13 @@ const translations = {
     "character.comicsCount": "{count} cómics disponibles",
     "footer.developed": "Desarrollado por el grupo CSS",
     "footer.rights": "© 2025 MARVEL. Todos los derechos reservados.",
-    "footer.marvelInfo": "Los personajes y logotipos de Marvel son propiedad de <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment, LLC</a>",
+    "footer.marvelInfo": "Los personajes y logotipos de Marvel son propiedad de <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment</a>",
     "footer.educational": "Este sitio es un proyecto educativo sin fines comerciales."
   },
   "en": {
     "header.title": "Marvel",
     "header.subtitle": "Explore the vast universe of Marvel characters, comics and series",
+    "idioma": "Language:",
     "search.placeholder": "Which superhero are you looking for?",
     "search.button": "Search",
     "filters.title": "Filter by Universe",
@@ -37,12 +39,13 @@ const translations = {
     "character.comicsCount": "{count} comics available",
     "footer.developed": "Developed by CSS group",
     "footer.rights": "© 2025 MARVEL. All rights reserved.",
-    "footer.marvelInfo": "Marvel characters and logos are property of <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment, LLC</a>",
+    "footer.marvelInfo": "Marvel characters and logos are property of <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment</a>",
     "footer.educational": "This site is an educational project with no commercial purpose."
   },
   "fr": {
     "header.title": "Marvel",
     "header.subtitle": "Explorez le vaste univers des personnages, bandes dessinées et séries Marvel",
+    "idioma": "Langue:",
     "search.placeholder": "Quel super-héros cherchez-vous?",
     "search.button": "Rechercher",
     "filters.title": "Filtrer par Univers",
@@ -57,12 +60,13 @@ const translations = {
     "character.comicsCount": "{count} bandes dessinées disponibles",
     "footer.developed": "Développé par le groupe CSS",
     "footer.rights": "© 2025 MARVEL. Tous droits réservés.",
-    "footer.marvelInfo": "Les personnages et logos Marvel sont la propriété de <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment, LLC</a>",
+    "footer.marvelInfo": "Les personnages et logos Marvel sont la propriété de <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment</a>",
     "footer.educational": "Ce site est un projet éducatif sans but commercial."
   },
   "ro": {
     "header.title": "Marvel",
     "header.subtitle": "Explorează universul vast de personaje, benzi desenate și serii Marvel",
+    "idioma": "Limbă:",
     "search.placeholder": "Ce super-erou cauți?",
     "search.button": "Caută",
     "filters.title": "Filtrează după Univers",
@@ -77,7 +81,7 @@ const translations = {
     "character.comicsCount": "{count} benzi desenate disponibile",
     "footer.developed": "Dezvoltat de grupul CSS",
     "footer.rights": "© 2025 MARVEL. Toate drepturile rezervate.",
-    "footer.marvelInfo": "Personajele și logo-urile Marvel sunt proprietatea <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment, LLC</a>",
+    "footer.marvelInfo": "Personajele și logo-urile Marvel sunt proprietatea <a href=\"https://developer.marvel.com/\" target=\"_blank\">Marvel Entertainment</a>",
     "footer.educational": "Acest site este un proiect educațional fără scop comercial."
   }
 };
