@@ -199,3 +199,4 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLanguage(e.target.value);
   });
 });
+
